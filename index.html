@@ -4,8 +4,166 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tiny Weather</title>
+	<style>
+		@font-face {
+			font-family: 'Inter-Medium';
+				src: url('Inter-Medium.woff2') format('woff2'),
+						 url('Inter-Medium.woff') format('woff');
+		}
+
+		@font-face {
+			font-family: 'Inter-ExtraBold';
+				src: url('Inter-ExtraBold.woff2') format('woff2'),
+						 url('Inter-ExtraBold.woff') format('woff');
+		}
+
+		html,
+		body,
+		h1 {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			width: 100%;
+		}
+
+		body {
+			height: 100%;
+			box-sizing: border-box;
+			font-family: 'Inter-Medium', sans-serif;
+			font-size: 1rem;
+			line-height: 1.5;
+  		word-break: break-word;
+			background: rgb(235,235,235);
+			background: linear-gradient(30deg, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 70%, rgba(235,235,235,1) 100%);
+			color: #2e2e2e;
+		}
+
+		*,
+		*:before,
+		*:after {
+			box-sizing: inherit;
+			word-break: inherit;
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		#container {
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			padding: 2rem 1.125rem;
+		}
+
+		h1,
+		h1 + span {
+			font-family: 'Inter-ExtraBold', sans-serif;
+			font-size: 2.25rem;
+			line-height: 1.1;
+			color: #111111;
+		}
+
+		h1 + span {
+			background: #EA2D93;
+			background: -webkit-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: -moz-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			-webkit-box-decoration-break: clone; /* hack for multi-line text bug */
+		}
+
+		#content {
+			max-width: 28rem;
+		}
+
+		#text {
+			margin: 2rem 0 4rem;
+		}
+
+		.cta {
+			display: inline-flex;
+			align-items: center;
+			padding: 1rem 1.25rem;
+			border-radius: 10px;
+			font-size: 1.25rem;
+			color: #ffffff;
+			background: #EA2D93;
+			background: -webkit-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: -moz-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			box-shadow: 0px 10px 25px 0px rgba(203,73,194,0.4);
+		}
+
+		.cta > img {
+			margin-right: 12px;
+		}
+
+		#app-preview {
+			max-width: 240px;
+			margin: 1rem;
+		}
+
+		@media (min-width: 500px) {
+			body {
+				font-size: 1.125rem;
+			}
+
+			#container {
+				padding: 3rem;
+			}
+			
+			h1,
+			h1 + span {
+				font-size: 3rem;
+			}
+
+			.cta {
+				font-size: 1.5rem;
+			}
+
+			#app-preview {
+				max-width: 317px;
+				margin: 3rem;
+			}
+		}
+
+		@media (min-width: 800px) {
+			#container {
+				flex-direction: row;
+			}
+		}
+	</style>
 </head>
 <body>
-	<p>Fun stuff in the works by <a href="https://alexandersandberg.com">Alex</a>, coming soon! :)</p>
+	<div id="container">
+		<div id="content">
+			<h1>Tiny Weather</h1>
+			<span>simpler forecasts</span>
+			<p id="text">Follow the development on Twitter and be the first one to know when Tiny Weather launches. 🚀</p>
+			<a href="https://twitter.com/alexandberg" class="cta">
+				<img
+				src="twitter.svg"
+				alt="Twitter icon" />
+				@alexandberg
+			</a>
+		</div>
+		<img id="app-preview" src="app-preview.png" srcset="app-preview@2x.png 2x, app-preview@3x.png 3x" alt="Tiny Weather app preview">
+	</div>
 </body>
 </html>
