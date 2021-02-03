@@ -34,9 +34,9 @@
 			font-family: 'Inter-Medium', sans-serif;
 			font-size: 1rem;
 			line-height: 1.5;
-  		word-break: break-word;
-			background: rgb(235,235,235);
-			background: linear-gradient(30deg, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 70%, rgba(235,235,235,1) 100%);
+			word-break: break-word;
+			background: #ebebeb;
+			background: linear-gradient(30deg, #ebebeb 0%, #ffffff 70%, #ebebeb 100%);
 			color: #2e2e2e;
 		}
 
@@ -66,6 +66,7 @@
 			justify-content: center;
 			align-items: center;
 			min-height: 100vh;
+			min-height: calc(var(--vh, 1vh) * 100); /* hack for vh fix on mobile */
 			padding: 2rem 1.125rem;
 		}
 
@@ -78,10 +79,8 @@
 		}
 
 		h1 + span {
-			background: #EA2D93;
-			background: -webkit-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
-			background: -moz-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
-			background: linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: #ea2d93;
+			background: linear-gradient(to right, #ea2d93 0%, #9d1fd9 100%);
 			background-clip: text;
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
@@ -103,10 +102,8 @@
 			border-radius: 10px;
 			font-size: 1.25rem;
 			color: #ffffff;
-			background: #EA2D93;
-			background: -webkit-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
-			background: -moz-linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
-			background: linear-gradient(to right, #EA2D93 0%, #9D1FD9 100%);
+			background: #ea2d93;
+			background: linear-gradient(to right, #ea2d93 0%, #9d1fd9 100%);
 			box-shadow: 0px 10px 25px 0px rgba(203,73,194,0.4);
 		}
 
@@ -114,9 +111,17 @@
 			margin-right: 12px;
 		}
 
-		#app-preview {
+		.app-preview {
 			max-width: 240px;
 			margin: 1rem;
+		}
+
+		#app-preview-lm {
+			display: block;
+		}
+
+		#app-preview-dm {
+			display: none;
 		}
 
 		@media (min-width: 500px) {
@@ -137,7 +142,7 @@
 				font-size: 1.5rem;
 			}
 
-			#app-preview {
+			.app-preview {
 				max-width: 317px;
 				margin: 3rem;
 			}
@@ -146,6 +151,27 @@
 		@media (min-width: 800px) {
 			#container {
 				flex-direction: row;
+			}
+		}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				background: #111111;
+				background: linear-gradient(30deg, #111111 0%, #1b1b1b 70%, #111111 100%);
+				color: #e2e2e2;
+			}
+
+			h1,
+			h1 + span {
+				color: #ffffff;
+			}
+
+			#app-preview-lm {
+				display: none;
+			}
+
+			#app-preview-dm {
+				display: block;
 			}
 		}
 	</style>
@@ -158,12 +184,33 @@
 			<p id="text">Follow the development on Twitter and be the first one to know when Tiny Weather launches. 🚀</p>
 			<a href="https://twitter.com/alexandberg" class="cta">
 				<img
-				src="twitter.svg"
-				alt="Twitter icon" />
+					src="twitter.svg"
+					alt="Twitter icon" />
 				@alexandberg
 			</a>
 		</div>
-		<img id="app-preview" src="app-preview.png" srcset="app-preview@2x.png 2x, app-preview@3x.png 3x" alt="Tiny Weather app preview">
+		<img
+			class="app-preview"
+			id="app-preview-lm"
+			src="app-preview.png"
+			srcset="app-preview@2x.png 2x, app-preview@3x.png 3x"
+			alt="Tiny Weather app preview" />
+		<img
+			class="app-preview"
+			id="app-preview-dm"
+			src="app-preview-dm.png"
+			srcset="app-preview-dm@2x.png 2x, app-preview-dm@3x.png 3x"
+			alt="Tiny Weather app preview" />
 	</div>
+	<script>
+		// hack for vh fix on mobile
+		const setVh = () => {
+			const vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		};
+		
+		window.addEventListener('load', setVh);
+		window.addEventListener('resize', setVh);
+	</script>
 </body>
 </html>
