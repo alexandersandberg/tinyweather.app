@@ -25,46 +25,94 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
+	<link rel="stylesheet" type="text/css" href="icomoon.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-	<div id="container">
+<body id="home">
+	<section id="intro" class="section">
 		<div id="content">
 			<h1>Tiny Weather</h1>
 			<span>Simple forecasts</span>
 			<p id="text">
-				Join the betas! <a href="https://testflight.apple.com/join/JRph6rSI">iOS</a> · <a href="https://play.google.com/store/apps/details?id=com.alexandersandberg.tinyweather">Android</a>
-				<br><br>
-				Follow the development on Twitter and be the first one to know when Tiny Weather launches. 🚀</p>
-			<a href="https://twitter.com/tinyweatherapp" class="cta">
-				<img
-					src="/assets/images/twitter.svg"
-					alt="Twitter icon" />
-				@tinyweatherapp
-			</a>
+				A simple and free weather app by <a href="https://alexandersandberg.com" class="no-break">Alexander Sandberg</a>.
+			</p>
+			<div class="store-badges">
+				<a href=""><img src="/assets/images/app-store-badge.png" alt="Download on the App Store" ></a>
+				<a href='https://play.google.com/store/apps/details?id=com.alexandersandberg.tinyweather&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='/assets/images/google-play-badge.png'/></a>
+			</div>
+			<p><a href="/support">Support</a> · <a href="/privacy">Privacy Policy</a></p>
 		</div>
 		<img
-			class="app-preview"
-			id="app-preview-lm"
-			src="/assets/images/app-preview.png"
-			srcset="/assets/images/app-preview@2x.png 2x, /assets/images/app-preview@3x.png 3x"
+			class="tw-preview"
+			id="tw-preview-lm"
+			src="/assets/images/tw-preview.png"
+			srcset="/assets/images/tw-preview@2x.png 2x, /assets/images/tw-preview@3x.png 3x"
 			alt="Tiny Weather app preview" />
 		<img
-			class="app-preview"
-			id="app-preview-dm"
-			src="/assets/images/app-preview-dm.png"
-			srcset="/assets/images/app-preview-dm@2x.png 2x, /assets/images/app-preview-dm@3x.png 3x"
+			class="tw-preview"
+			id="tw-preview-dm"
+			src="/assets/images/tw-preview-dm.png"
+			srcset="/assets/images/tw-preview-dm@2x.png 2x, /assets/images/tw-preview-dm@3x.png 3x"
 			alt="Tiny Weather app preview" />
-	</div>
-	<script>
-		// hack for vh fix on mobile
-		const setVh = () => {
-			const vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty('--vh', `${vh}px`);
-		};
-		
-		window.addEventListener('load', setVh);
-		window.addEventListener('resize', setVh);
-	</script>
-</body>
+	</section>
+	<section id="text-blocks">
+		<div>
+			<span class="icon icon-tiny-weather"></span>
+			<h2>Simple forecasts</h2>
+			<p>
+				Tiny Weather makes staying up-to-date with the weather simple. If you’re looking for more advanced forecasts this app may not be for you.
+			</p>
+		</div>
+		<div>
+			<span class="icon icon-happy"></span>
+			<h2>Free without ads and subscriptions</h2>
+			<p>
+				Tiny Weather is 100% free without ads and subscriptions that you will forget to cancel.
+			</p>
+		</div>
+		<div>
+			<span class="icon icon-privacy"></span>
+			<h2>Privacy first</h2>
+			<p>
+				Tiny Weather does not sell your data like many other weather apps. We don’t even collect it.	
+			</p>
+		</div>
+		<div>
+			<span class="icon icon-heart"></span>
+			<h2>Giving to those in need</h2>
+			<p>
+				50% of all donations to Tiny Weather are given to GiveWell’s Maximum Impact Fund to help people in need.
+			</p>
+		</div>
+	</section>
+	<section id="bottom">
+		<img
+			class="app-icon"
+			id="app-icon-lm"
+			src="/assets/images/app-icon.png"
+			srcset="/assets/images/app-icon@2x.png 2x, /assets/images/app-icon@3x.png 3x"
+			alt="Tiny Weather app preview" />
+		<img
+			class="app-icon"
+			id="app-icon-dm"
+			src="/assets/images/app-icon-dm.png"
+			srcset="/assets/images/app-icon-dm@2x.png 2x, /assets/images/app-icon-dm@3x.png 3x"
+			alt="Tiny Weather app preview" />
+		<div class="store-badges">
+			<a href=""><img src="/assets/images/app-store-badge.png" alt="Download on the App Store" ></a>
+			<a href='https://play.google.com/store/apps/details?id=com.alexandersandberg.tinyweather&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='/assets/images/google-play-badge.png'/></a>
+		</div>
+		<p id="bottom-text">Stay up-to-date with the development and new releases of Tiny Weather on Twitter!</p>
+		<a href="https://twitter.com/tinyweatherapp" class="cta">
+			<img
+				src="/assets/images/twitter.svg"
+				alt="Twitter icon" />
+			@tinyweatherapp
+		</a>
+		<footer>
+			<p><a href="/support">Support</a> · <a href="/privacy">Privacy Policy</a></p>
+<p>A tiny project by <a href="https://alexandersandberg.com">Alexander Sandberg</a>.</p>
+		</footer>
+	</section>
+	
 </html>
