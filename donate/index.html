@@ -30,16 +30,48 @@
 	<div id="centered">
 		<div id="content">
 			<h1>Tiny Weather</h1>
-			<span>Donate</span>
+			<span>Donate ♡</span>
 			<div id="text">
-				<span id="state"></span>
+				<span id="status"></span>
+				<span id="error-message"></span>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXSZDIkky64OxvuPwyN0f84"
+				>
+					Donate €2 once
+				</button>
 				<button
 					data-checkout-mode="payment"
 					data-price-id="price_1IXSZDIkky64Oxvutp7c2oNY"
 				>
 					Donate €5 once
 				</button>
-				<p><a href="/">Home</a> · <a href="/privacy-and-terms">Privacy &amp; Terms</a></p>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXSZDIkky64Oxvuo10wkPvq"
+				>
+					Donate €10 once
+				</button>
+				<br>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXSbbIkky64OxvufC6b9bE2"
+				>
+					Donate €1/month
+				</button>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXScKIkky64OxvusgGO7HKw"
+				>
+					Donate €2/month
+				</button>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXScQIkky64OxvuFyzvzsWz"
+				>
+					Donate €5/month
+				</button>
+				<p><a href="/">Home</a> · <a href="/privacy-and-terms">Privacy &amp; Terms</a> · <a href="/support">Support</a></p>
 			</div>
 		</div>
 	</div>
@@ -47,9 +79,9 @@
 	<script>
 		var urlParams = new URLSearchParams(window.location.search);
 
-		if (urlParams.has("state")) {
-			document.getElementById("state").textContent = urlParams.get(
-				"state"
+		if (urlParams.has("status")) {
+			document.getElementById("status").textContent = urlParams.get(
+				"status"
 			);
 		}
 	</script>
@@ -78,11 +110,11 @@
 						mode: mode,
 						lineItems: items,
 						successUrl:
-							DOMAIN + '?state=success&session_id={CHECKOUT_SESSION_ID}',
+							DOMAIN + '?status=success&session_id={CHECKOUT_SESSION_ID}',
 						cancelUrl:
-							DOMAIN + '?state=canceled&session_id={CHECKOUT_SESSION_ID}',
+							DOMAIN + '?status=canceled&session_id={CHECKOUT_SESSION_ID}',
 					})
-					.then(handleResult);
+					.then(handleResult)
 			});
 		});
 	</script>
