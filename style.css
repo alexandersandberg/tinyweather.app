@@ -139,6 +139,22 @@ h3 {
 	font-size: 1.5rem;
 }
 
+button {
+	border: none;
+	transition: transform 0.25s ease;
+	margin: 0.25rem;
+}
+
+button:hover,
+button:focus {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
 #content {
 	max-width: 100%;
 }
@@ -175,6 +191,18 @@ h3 {
 	background: #ea2d93;
 	background: linear-gradient(to right, #ea2d93 0%, #9d1fd9 100%);
 	box-shadow: 0px 10px 25px 0px rgba(203,73,194,0.4);
+}
+
+.cta.small {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 0.625rem;
+	border-radius: 10px;
+	font-size: 1rem;
+	color: #ffffff;
+	background: #ea2d93;
+	background: linear-gradient(to right, #ea2d93 0%, #9d1fd9 100%);
+	box-shadow: 0px 5px 15px 0px rgba(203,73,194,0.4);
 }
 
 .cta > img {
@@ -221,6 +249,26 @@ h3 {
 	font-size: 1.5rem;
 }
 
+body#success #donation-success {
+	display: block;
+}
+
+#donation-success,
+body#success #donation-main {
+	display: none;
+}
+
+.donate-buttons-headline {
+	text-align: center;
+}
+
+.donate-button-row {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 2rem;
+}
+
 #bottom {
 	text-align: center;
 	margin: 0 auto;
@@ -253,9 +301,8 @@ footer {
 		font-size: 1.5rem;
 	}
 
-
 	#content {
-		width: 28rem;
+		width: 30rem;
 	}
 
 	.tw-preview {
@@ -277,6 +324,14 @@ footer {
 
 	#text-blocks {
 		grid-template-columns: auto auto;
+	}
+
+	.donate-buttons-headline {
+		text-align: left;
+	}
+
+	.donate-button-row {
+		flex-direction: row;
 	}
 
 	#bottom {
