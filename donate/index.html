@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	
+	<title>Donate / Tiny Weather</title>
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@tinyweatherapp" />
+	<meta name="twitter:creator" content="@tinyweatherapp" />
+	<meta name="twitter:image" content="../assets/meta/og-image.png" />
+	<meta property="og:title" content="Donate / Tiny Weather" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://tinyweather.app/donate" />
+	<meta property="og:image" content="../assets/meta/og-image.png" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/meta/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/meta/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/meta/favicon-16x16.png">
+	<link rel="manifest" href="../assets/meta/site.webmanifest">
+	<link rel="mask-icon" href="../assets/meta/safari-pinned-tab.svg" color="#111111">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+	<script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+	<div id="centered">
+		<div id="content">
+			<h1>Tiny Weather</h1>
+			<span>Donate</span>
+			<div id="text">
+				<span id="state"></span>
+				<button
+					data-checkout-mode="payment"
+					data-price-id="price_1IXSZDIkky64Oxvutp7c2oNY"
+				>
+					Donate €5 once
+				</button>
+				<p><a href="/">Home</a> · <a href="/privacy-and-terms">Privacy &amp; Terms</a></p>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var urlParams = new URLSearchParams(window.location.search);
+
+		if (urlParams.has("state")) {
+			document.getElementById("state").textContent = urlParams.get(
+				"state"
+			);
+		}
+	</script>
+
+	<script>
+		var PUBLISHABLE_KEY = 'pk_live_51IXSA2Ikky64Oxvuy9ZwVDiFVoIME3XYkppMWgMxUgLca9F7NWf0hcGlk4zqQf9RgR598SNYYiTDU7TbILkUgFme00VKJ3UMN5';
+		var DOMAIN = location.href.replace(/[^/]*$/, '');
+
+		var stripe = Stripe(PUBLISHABLE_KEY);
+
+		var handleResult = function (result) {
+			if (result.error) {
+				var displayError = document.getElementById('error-message');
+				displayError.textContent = result.error.message;
+			}
+		};
+
+		document.querySelectorAll('button').forEach(function (button) {
+			button.addEventListener('click', function (e) {
+				var mode = e.target.dataset.checkoutMode;
+				var priceId = e.target.dataset.priceId;
+				var items = [{ price: priceId, quantity: 1 }];
+
+				stripe
+					.redirectToCheckout({
+						mode: mode,
+						lineItems: items,
+						successUrl:
+							DOMAIN + 'donate?state=success&session_id={CHECKOUT_SESSION_ID}',
+						cancelUrl:
+							DOMAIN + 'donate?state=canceled&session_id={CHECKOUT_SESSION_ID}',
+					})
+					.then(handleResult);
+			});
+		});
+	</script>
+</body>
+</html>
