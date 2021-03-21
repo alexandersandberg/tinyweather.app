@@ -78,9 +78,9 @@
 						mode: mode,
 						lineItems: items,
 						successUrl:
-							DOMAIN + 'donate?state=success&session_id={CHECKOUT_SESSION_ID}',
+							DOMAIN + '?state=success&session_id={CHECKOUT_SESSION_ID}',
 						cancelUrl:
-							DOMAIN + 'donate?state=canceled&session_id={CHECKOUT_SESSION_ID}',
+							DOMAIN + '?state=canceled&session_id={CHECKOUT_SESSION_ID}',
 					})
 					.then(handleResult);
 			});
