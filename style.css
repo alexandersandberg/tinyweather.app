@@ -119,7 +119,7 @@ h1 + span {
 	font-family: 'Inter-ExtraBold', sans-serif;
 	font-size: 2.25rem;
 	line-height: 1.1;
-	color: #111111;
+	color: #000000;
 }
 
 h1 + span {
@@ -361,12 +361,12 @@ footer {
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background: #111111;
+		background: #000000;
 		color: #e2e2e2;
 	}
 
 	body#home {
-		background: linear-gradient(30deg, #111111 0%, #1b1b1b 70%, #111111 100%);
+		background: linear-gradient(30deg, #000000 0%, #0b0b0b 70%, #000000 100%);
 	}
 
 	h1,
