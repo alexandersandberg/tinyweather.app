@@ -1,3 +1,3 @@
 # [tinyweather.app](https://tinyweather.app)
 
-The Tiny Weather app landing page.
+This site now lives on [alexandersandberg.com](https://github.com/alexandersandberg/alexandersandberg.com) together with my other apps. See you there! :)
