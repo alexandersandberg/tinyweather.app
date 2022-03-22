@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "/privacy-and-terms/"
+  to = "https://alexandersandberg.com/apps/privacy-and-support/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/support/"
+  to = "https://alexandersandberg.com/apps/privacy-and-support/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/donate/"
+  to = "https://alexandersandberg.com/apps/tiny-weather/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "*"
+  to = "https://alexandersandberg.com/apps/tiny-weather/"
+  status = 301
+  force = true
